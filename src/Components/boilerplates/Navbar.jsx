@@ -12,7 +12,7 @@ export default function Navbar() {
           <div className="pt-1  mr-24 flex item-center justify-evenly w-96 pr-10 text-gray-500">
             <Link
               className="duration-500 mt-3 text-gray-500 border-b-0 hover:text-blue-400 hover:border-6 text-xl "
-              to="/"
+              to="/AmanWebsite"
             >
               Home
             </Link>
