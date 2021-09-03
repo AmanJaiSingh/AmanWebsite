@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/AmanWebsite/static/css/main.d80a0bee.chunk.css",
+    "main.js": "/AmanWebsite/static/js/main.50e1287b.chunk.js",
+    "main.js.map": "/AmanWebsite/static/js/main.50e1287b.chunk.js.map",
+    "runtime-main.js": "/AmanWebsite/static/js/runtime-main.d3423076.js",
+    "runtime-main.js.map": "/AmanWebsite/static/js/runtime-main.d3423076.js.map",
+    "static/js/2.e8c9026e.chunk.js": "/AmanWebsite/static/js/2.e8c9026e.chunk.js",
+    "static/js/2.e8c9026e.chunk.js.map": "/AmanWebsite/static/js/2.e8c9026e.chunk.js.map",
+    "index.html": "/AmanWebsite/index.html",
+    "static/css/main.d80a0bee.chunk.css.map": "/AmanWebsite/static/css/main.d80a0bee.chunk.css.map",
+    "static/js/2.e8c9026e.chunk.js.LICENSE.txt": "/AmanWebsite/static/js/2.e8c9026e.chunk.js.LICENSE.txt",
+    "static/media/code2.0428f76d.svg": "/AmanWebsite/static/media/code2.0428f76d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d3423076.js",
+    "static/js/2.e8c9026e.chunk.js",
+    "static/css/main.d80a0bee.chunk.css",
+    "static/js/main.50e1287b.chunk.js"
+  ]
+}
