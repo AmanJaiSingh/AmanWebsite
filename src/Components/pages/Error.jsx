@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../boilerplates/Navbar";
 import { Link } from "react-router-dom";
+import Footer from "../boilerplates/Footer";
 
 export default function Error() {
   return (
