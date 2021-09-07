@@ -12,7 +12,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/Search" exact component={Search} />
             <Route path="/SignIn" exact component={SignIN} />
-            <Route component={Error} />
+            {/* <Route component={Error} /> */}
           </Switch>
         </Router>
       </div>

